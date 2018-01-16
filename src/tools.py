@@ -32,3 +32,13 @@ def get_logger(file_name, file_level = None, console_level = None):
         fh.setFormatter(fh_format)
         logger.addHandler(fh)
     return logger
+
+def calculate_accuracy(y, y_predit):
+    mis_indices = np.where(y != y_predit)[0]
+    accuracy = 1.0 - ( 1.0 * len(mis_indices) / len(y))
+    return mis_indices, accuracy
+
+def config():
+    np.set_printoptions(threshold=np.nan)
+    np.set_printoptions(linewidth=300)
+
