@@ -22,3 +22,10 @@
 *.out
 *.synctex.gz
 *.run.xml
+
+data/*
+!data/.gitkeep
+
+*.pkl
+
+*.pyc
