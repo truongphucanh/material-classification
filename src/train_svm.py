@@ -15,9 +15,9 @@ def get_data(train_list_file):
     y = []
     for line in content:
         folder = line.split()[0]
-        with open('../bin/train_test/{}_X.pkl'.format(folder)) as f:
+        with open('../bin/vgg16-svm/vgg16/{}_X.pkl'.format(folder)) as f:
             X.extend(pkl.load(f))
-        with open('../bin/train_test/{}_y.pkl'.format(folder)) as f:
+        with open('../bin/vgg16-svm/vgg16/{}_y.pkl'.format(folder)) as f:
             y.extend(pkl.load(f))
     return X, y
 
@@ -34,7 +34,7 @@ def train_and_test(train_list_file, test_list_file, idx=0):
     multi_class = 'ovr'
     
     # 3. get logger
-    log_file = '../logs/svm/train_test_{}.log'.format(idx)
+    log_file = '../logs/vgg16-svm/train_test_{}.log'.format(idx)
     logger = tools.get_logger(log_file, logging.DEBUG, logging.DEBUG)
     logger.info('*'*75)
     logger.info('C: {}'.format(C))
@@ -51,7 +51,7 @@ def train_and_test(train_list_file, test_list_file, idx=0):
     logger.info('fit_time: {} seconds'.format(fit_time))
     
     # 5. save model
-    model_file = '../bin/models/svm/train_test_{}/{}_{}_{}_{}_{}.pkl'.format(idx, multi_class, C, kernel, gamma, degree)
+    model_file = '../bin/vgg16-svm/models/train_test_{}/{}_{}_{}_{}_{}.pkl'.format(idx, multi_class, C, kernel, gamma, degree)
     with open(model_file, 'wb') as fid:
         joblib.dump(model, model_file)
     
@@ -77,7 +77,7 @@ IS_TESTING = True
 
 def main():
     tools.config()
-    # model_file = '../bin/models/svm/train_test_0/ovr_0.1_linear_None_None.pkl'
+    # model_file = '../bin/vgg16-svm/models/train_test_0/ovr_0.1_linear_None_None.pkl'
     # with open(model_file, 'rb') as fid:
     #     model = joblib.load(model_file) 
     #     info_test_file = '../train_test/testlist01-copy.txt'

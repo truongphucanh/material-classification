@@ -40,8 +40,8 @@ def get_fc2_and_labels(info_file, model):
     for line in content:
         folder = line.split()[0]
         label = line.split()[1]
-        X_out_file = '../bin/train_test/{}_X.pkl'.format(folder)
-        y_out_file = '../bin/train_test/{}_y.pkl'.format(folder)
+        X_out_file = '../bin/vgg16-svm/vgg16/{}_X.pkl'.format(folder)
+        y_out_file = '../bin/vgg16-svm/vgg16/{}_y.pkl'.format(folder)
         if not os.path.exists(X_out_file):
             curr_fc2 = get_list_fc2('../data/{}'.format(folder) ,model)
             curr_labels = [label] * np.shape(curr_fc2)[0]
