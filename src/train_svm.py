@@ -1,4 +1,5 @@
 from sklearn import svm, metrics
+from sklearn.externals import joblib
 import numpy as np
 import pickle as pkl
 import time
@@ -6,7 +7,6 @@ import logging
 import tools
 import cPickle
 import time
-
 def get_data(train_list_file):
     with open(train_list_file) as f:
         content = f.readlines()
@@ -51,9 +51,9 @@ def train_and_test(train_list_file, test_list_file, idx=0):
     logger.info('fit_time: {} seconds'.format(fit_time))
     
     # 5. save model
-    model_file = '../bin/models/svm/train_test_{}.pkl'.format(idx)
+    model_file = '../bin/models/svm/train_test_{}/{}_{}_{}_{}_{}.pkl'.format(idx, multi_class, C, kernel, gamma, degree)
     with open(model_file, 'wb') as fid:
-        cPickle.dump(model, fid)
+        joblib.dump(model, model_file)
     
     # 6. predict on test data
     y_pred_test = model.predict(X_test)
@@ -77,6 +77,15 @@ IS_TESTING = True
 
 def main():
     tools.config()
+    # model_file = '../bin/models/svm/train_test_0/ovr_0.1_linear_None_None.pkl'
+    # with open(model_file, 'rb') as fid:
+    #     model = joblib.load(model_file) 
+    #     info_test_file = '../train_test/testlist01-copy.txt'
+    #     X_test, y_test = get_data(info_test_file)
+    #     y_pred_test = model.predict(X_test)
+    #     mis_indecies, accuracy = tools.calculate_accuracy(y_test, y_pred_test)
+    #     print accuracy
+    #     return 0
     if IS_TESTING:
         test()
         return 0
