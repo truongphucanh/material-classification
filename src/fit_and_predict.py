@@ -13,6 +13,7 @@ import csv
 IS_TESTING = True
 FEATURES_DIR = '../bin/features'
 MODELS_CONFIG = '../config/models_config.csv'
+FEATURE_USED = 'keras_vgg16_fc2'
 
 def get_data(train_list_file, feature):
     """Get features, labels for training process.
@@ -164,11 +165,16 @@ def train_and_test(train_list_file, test_list_file, idx=0):
         logger.info('%-15s\t%-15s' % (y_test[idx], y_pred_test[idx]))
 
 def test():
-    info_train_file = '../train_test/trainlist00.txt'
-    info_test_file = '../train_test/testlist00.txt'
+    for i in range(2, 6):
+        info_train_file = '../train_test/trainlist0{}.txt'.format(i)
+        info_test_file = '../train_test/testlist0{}.txt'.format(i)
+        start_time = time.time()
+        X, y, _ = get_data(info_train_file, FEATURE_USED)
+        X2, y2, _ = get_data(info_test_file, FEATURE_USED)
+        print time.time() - start_time
     #train_and_test(info_train_file, info_test_file, 0)
-    models, list_kernel, list_C, list_degree, list_gamma = get_models(MODELS_CONFIG)
-    print models
+    #models, list_kernel, list_C, list_degree, list_gamma = get_models(MODELS_CONFIG)
+    #print models
 
 def main():
     tools.config()
