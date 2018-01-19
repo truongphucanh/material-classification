@@ -2,8 +2,8 @@
 """
 
 import os
-import tools
 import logging
+import tools
 
 TRAIN_FORMAT = 'trainlist0{}.txt'
 TEST_FORMAT = 'testlist0{}.txt'
