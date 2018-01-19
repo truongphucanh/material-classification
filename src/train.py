@@ -4,14 +4,12 @@ import pickle
 import sys
 import time
 import logging
-import tools
-import cPickle
-import time
 import os
 import csv
-from sklearn import svm, metrics
+from sklearn import svm
 from sklearn.externals import joblib
 import numpy as np
+import tools
 
 OVERWRITE_MODEL = False
 MODELS_CONFIG_FILE = '../config/models_config.csv'
