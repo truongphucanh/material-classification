@@ -18,6 +18,7 @@ def get_logger(file_name, file_level=None, console_level=None):
         A logger
     """
     logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
     if console_level != None:
         ch = logging.StreamHandler()
         ch.setLevel(console_level)
