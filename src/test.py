@@ -13,8 +13,8 @@ from sklearn.metrics import confusion_matrix
 import tools
 
 OVERWRITE_MODE = False
-LOW_TESTSET_INDEX = 0
-HIGH_TESTSET_INDEX = 6
+LOW_TESTSET_INDEX = 3
+HIGH_TESTSET_INDEX = 5
 FEATURES_DIR_FORMAT = '../bin/features/{}' #.format(feature_name)
 MODELS_DIR_FORMAT = '../bin/models/{}/trainlist0{}' #.format(feature_name, trainset_index)
 TEST_RESULT_FOLDER_FORMAT = '../bin/test/{}/testlist0{}/{}' #.format(feature_name, testset_index, model_name)
@@ -79,6 +79,9 @@ def test(feature_name, testset_index):
         test_result_folder = TEST_RESULT_FOLDER_FORMAT.format(feature_name, testset_index, model_name)
         confusion_matrix_file = '{}/confusion_matrix.csv'.format(test_result_folder)
         miss_samples_file = '{}/miss_samples.csv'.format(test_result_folder)
+        if (not OVERWRITE_MODE) and os.path.exists(confusion_matrix_file) and os.path.exists(miss_samples_file):
+            logger.info('Test result for {} existed'.format(test_result_folder))
+            continue
         if not os.path.exists(test_result_folder):
             logger.info('Creating test result folder {}...'.format(test_result_folder))
             os.makedirs(test_result_folder)
@@ -94,10 +97,10 @@ def test(feature_name, testset_index):
             f.write(np.array2string(cf_matrix, separator=', '))
         logger.info('Writting miss samples to {}...'.format(miss_samples_file))
         with open(miss_samples_file, 'wb') as f:
-            f.write('index,y,y_pred\n')
+            f.write('index,y,y_pred,missed\n')
             for i in range(0, len(y)):
                 if y[i] == y_pred[i]:
-                    f.write('{},{},{}\n'.format(i, y[i], y_pred[i]))
+                    f.write('{},{},{},\n'.format(i, y[i], y_pred[i]))
                 else:
                     f.write('{},{},{},miss\n'.format(i, y[i], y_pred[i]))
         
