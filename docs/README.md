@@ -30,5 +30,5 @@ Learning Discriminative Illumination and Filters for Raw Material Classification
 # CVPR 2012
 Single Image Multimaterial Estimation
 
-# CVPR 2011
+# CVPR 2010
 Exploring Features in a Bayesian Framework for Material Recognition
