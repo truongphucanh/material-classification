@@ -50,7 +50,7 @@ def extract_all(dataset_name, model):
             else:
                 if not os.path.exists(feature_folder):
                     os.makedirs(feature_folder)
-                    logger.info('Running on folder'.format(feature_folder))
+                    logger.info('Running on folder {}'.format(feature_folder))
                 logger.debug('Extracting from {}...'.format(image_path))
                 feature = extract_from(image_path, model)
                 with open(feature_path, 'wb') as f:
