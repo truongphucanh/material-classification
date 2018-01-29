@@ -1,0 +1,24 @@
+2018-01-29 22:06:57,852 - main -****************************************************************************************************
+2018-01-29 22:06:57,854 - train_for -Start runing for feature keras_vgg16_fc2 on dataset original...
+2018-01-29 22:06:57,854 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-01-29 22:06:57,854 - train -Start training for train set 0 with feature keras_vgg16_fc2 on dataset original
+2018-01-29 22:06:57,887 - get_train_data -Getting training data for training set 0 with feature keras_vgg16_fc2 on dataset original...
+2018-01-29 22:06:57,890 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2/original/trainlist00.pkl...
+2018-01-29 22:06:58,002 - get_train_data -X shape: (38L, 4096L)
+2018-01-29 22:06:58,003 - get_train_data -Getting y from ../bin/labels/trainlist00.pkl...
+2018-01-29 22:06:58,007 - get_train_data -y shape: (38L,)
+2018-01-29 22:06:58,009 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/linear_0.1_None_None.pkl existed.
+2018-01-29 22:06:58,020 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/linear_1000_None_None.pkl existed.
+2018-01-29 22:06:58,020 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/rbf_0.1_None_0.000001.pkl existed.
+2018-01-29 22:06:58,022 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/rbf_0.1_None_0.01.pkl existed.
+2018-01-29 22:06:58,022 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/rbf_1000_None_0.000001.pkl existed.
+2018-01-29 22:06:58,023 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/rbf_1000_None_0.01.pkl existed.
+2018-01-29 22:06:58,023 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/poly_0.1_2_None.pkl existed.
+2018-01-29 22:06:58,023 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/poly_1000_2_None.pkl existed.
+2018-01-29 22:06:58,023 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/poly_0.1_3_None.pkl existed.
+2018-01-29 22:06:58,023 - train -Model ../bin/models/keras_vgg16_fc2/original/trainlist00/poly_1000_3_None.pkl existed.
+2018-01-29 22:06:58,025 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-01-29 22:06:58,025 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-01-29 22:06:58,025 - train -Start training for train set 1 with feature keras_vgg16_fc2 on dataset original
+2018-01-29 22:06:58,026 - get_train_data -Getting training data for training set 1 with feature keras_vgg16_fc2 on dataset original...
+2018-01-29 22:06:58,026 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2/original/trainlist01.pkl...
