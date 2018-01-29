@@ -46,7 +46,7 @@ def get_models(models_config_file):
     if not os.path.exists(models_config_file):
         logger.error('!Error: File not found {}'.format(models_config_file))
         return models, list_kernel, list_C, list_degree, list_gamma
-    with open(models_config_file, 'rb') as f:
+    with open(models_config_file) as f:
         reader = csv.reader(f)
         rows = list(reader)
         for row in rows:
