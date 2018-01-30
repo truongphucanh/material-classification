@@ -1,0 +1,105 @@
+2018-01-30 21:46:32,506 - main -****************************************************************************************************
+2018-01-30 21:47:13,206 - main -****************************************************************************************************
+2018-01-30 21:47:25,206 - main -****************************************************************************************************
+2018-01-30 21:47:39,470 - main -****************************************************************************************************
+2018-01-30 21:49:07,039 - main -****************************************************************************************************
+2018-01-30 21:49:07,040 - main -Combined-feature name: original-edges
+2018-01-30 22:00:50,073 - main -****************************************************************************************************
+2018-01-30 22:00:50,073 - main -Combined-feature name: original-edges
+2018-01-30 22:01:13,332 - main -****************************************************************************************************
+2018-01-30 22:01:13,333 - main -Combined-feature name: original-edges
+2018-01-30 22:03:00,236 - main -****************************************************************************************************
+2018-01-30 22:03:00,236 - main -Combined-feature name: original-edges
+2018-01-30 22:03:18,352 - main -****************************************************************************************************
+2018-01-30 22:03:18,352 - main -Combined-feature name: edges-original
+2018-01-30 22:04:27,065 - main -****************************************************************************************************
+2018-01-30 22:04:27,065 - main -Combined-feature name: edges-original
+2018-01-30 22:04:40,215 - main -****************************************************************************************************
+2018-01-30 22:04:40,215 - main -Combined-feature name: edges-original
+2018-01-30 22:05:12,622 - main -****************************************************************************************************
+2018-01-30 22:05:12,622 - main -Combined-feature name: edges-original
+2018-01-30 22:06:35,515 - main -****************************************************************************************************
+2018-01-30 22:06:35,515 - main -Combined-feature name: edges-original
+2018-01-30 22:06:49,799 - main -****************************************************************************************************
+2018-01-30 22:06:49,799 - main -Combined-feature name: edges-original
+2018-01-30 22:06:49,799 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample076_01
+2018-01-30 22:06:51,329 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample076_02
+2018-01-30 22:06:52,602 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample076_03
+2018-01-30 22:06:53,587 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample076_04
+2018-01-30 22:06:54,769 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample088_01
+2018-01-30 22:06:55,853 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample088_02
+2018-01-30 22:06:56,986 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample088_03
+2018-01-30 22:06:58,083 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample194_01
+2018-01-30 22:06:59,134 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample194_03
+2018-01-30 22:07:00,272 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\h_sample194_04
+2018-01-30 22:07:01,449 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample076_01
+2018-01-30 22:07:02,742 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample076_02
+2018-01-30 22:07:03,771 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample076_03
+2018-01-30 22:07:05,085 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample076_04
+2018-01-30 22:07:06,264 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample088_01
+2018-01-30 22:07:07,415 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample088_02
+2018-01-30 22:07:08,506 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample088_03
+2018-01-30 22:07:09,438 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample194_01
+2018-01-30 22:07:10,464 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample194_03
+2018-01-30 22:07:11,822 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\l_sample194_04
+2018-01-30 22:07:12,984 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample076_01
+2018-01-30 22:07:13,912 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample076_02
+2018-01-30 22:07:14,978 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample076_03
+2018-01-30 22:07:16,044 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample076_04
+2018-01-30 22:07:17,099 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample088_01
+2018-01-30 22:07:18,279 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample088_02
+2018-01-30 22:07:19,428 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample088_03
+2018-01-30 22:07:20,438 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample194_01
+2018-01-30 22:07:21,514 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample194_03
+2018-01-30 22:07:22,551 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\aluminum\n_sample194_04
+2018-01-30 22:07:23,541 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_Sample017_01
+2018-01-30 22:07:24,617 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample017_02
+2018-01-30 22:07:25,732 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample017_03
+2018-01-30 22:07:26,874 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample017_04
+2018-01-30 22:07:27,820 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample135_01
+2018-01-30 22:07:29,018 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample135_02
+2018-01-30 22:07:30,419 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample135_03
+2018-01-30 22:07:31,465 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample135_04
+2018-01-30 22:07:32,526 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample136_01
+2018-01-30 22:07:33,747 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample136_02
+2018-01-30 22:07:35,241 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample136_03
+2018-01-30 22:07:36,333 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample136_04
+2018-01-30 22:07:37,350 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample195_03
+2018-01-30 22:07:38,386 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\h_sample195_04
+2018-01-30 22:07:39,652 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_Sample017_01
+2018-01-30 22:07:41,438 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample017_02
+2018-01-30 22:07:42,715 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample017_03
+2018-01-30 22:07:43,917 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample017_04
+2018-01-30 22:07:45,023 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample135_01
+2018-01-30 22:07:46,147 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample135_02
+2018-01-30 22:07:47,262 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample135_03
+2018-01-30 22:07:48,459 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample135_04
+2018-01-30 22:07:49,724 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample136_01
+2018-01-30 22:07:50,787 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample136_02
+2018-01-30 22:07:51,883 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample136_03
+2018-01-30 22:07:52,897 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample136_04
+2018-01-30 22:07:53,849 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample195_03
+2018-01-30 22:07:54,985 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\l_sample195_04
+2018-01-30 22:07:56,196 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_Sample017_01
+2018-01-30 22:07:57,443 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample017_02
+2018-01-30 22:07:58,808 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample017_03
+2018-01-30 22:08:00,051 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample017_04
+2018-01-30 22:08:01,021 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample135_01
+2018-01-30 22:08:02,123 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample135_02
+2018-01-30 22:08:03,730 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample135_03
+2018-01-30 22:08:05,008 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample135_04
+2018-01-30 22:08:06,104 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample136_01
+2018-01-30 22:08:07,054 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample136_02
+2018-01-30 22:08:08,487 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample136_03
+2018-01-30 22:08:09,686 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample136_04
+2018-01-30 22:08:11,122 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample195_03
+2018-01-30 22:08:12,314 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original\asphalt\n_sample195_04
+2018-01-30 22:09:25,162 - main -****************************************************************************************************
+2018-01-30 22:09:25,162 - main -Combined-feature name: edges-original-test
+2018-01-30 22:09:25,164 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample076_01
+2018-01-30 22:09:26,660 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample076_02
+2018-01-30 22:09:27,993 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample076_03
+2018-01-30 22:09:29,332 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample076_04
+2018-01-30 22:09:31,221 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample088_01
+2018-01-30 22:09:32,994 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample088_02
+2018-01-30 22:09:34,792 - main -Running on folder ../bin/features/keras_vgg16_fc2/edges-original-test\aluminum\h_sample088_03
