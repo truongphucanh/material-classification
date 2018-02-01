@@ -21,7 +21,6 @@ def extract_from(img_path, model):
     Returns:
         list -- vector of feature
     """
-
     img = image.load_img(img_path,target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
@@ -43,7 +42,8 @@ def extract_all(dataset_name, model):
     for dirpath, _, filenames in os.walk(data_folder):
         for filename in [f for f in filenames if f.endswith(".jpg")]:
             image_path = os.path.join(dirpath, filename)
-            feature_path = image_path.replace('data', 'bin/features/keras_vgg16_fc2').replace('.jpg', '.pkl')
+            feature_path = image_path.replace('data', 'bin/features/keras_vgg16_fc2-{}'.format(dataset_name)).replace('.jpg', '.pkl')
+            feature_path = feature_path.replace('/{}'.format(dataset_name),'')
             feature_folder = dirpath.replace('data', 'bin/features/keras_vgg16_fc2')
             if os.path.exists(feature_path):
                 logger.debug('Feature file {} existed.'.format(feature_path))
