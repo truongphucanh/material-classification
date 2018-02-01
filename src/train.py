@@ -13,11 +13,12 @@ import tools
 
 OVERWRITE_MODEL = False
 MODELS_CONFIG_FILE = '../config/models_config.csv'
-FEATURES_DIR_FORMAT = '../bin/features/{}/{}' #.format(feature_name, data_name)
-MODELS_DIR_FORMAT = '../bin/models/{}/{}/trainlist0{}' #.format(feature_name, data_name, trainset_index)
-X_FILE_FORMAT = '../bin/features/{}/{}/trainlist0{}.pkl' #.format(feature_name, data_name, trainset_index)
+FEATURES_DIR_FORMAT = '../bin/features/{}' #.format(feature_name)
+MODELS_DIR_FORMAT = '../bin/models/{}/trainlist0{}' #.format(feature_name, trainset_index)
+X_FILE_FORMAT = '../bin/features/{}/trainlist0{}.pkl' #.format(feature_name, trainset_index)
 Y_FILE_FORMAT = '../bin/labels/trainlist0{}.pkl' #.format(trainset_index)
 FIT_TIME_ROW_FORMAT = '{},{},{},{},{}\n'#.format(kernel,C,d,g,time)
+LOG_FILE = '../logs/train.log'
 LOW_TRAINSET_INDEX = 0
 HIGH_TRAINSET_INDEX = 6
 
@@ -73,7 +74,7 @@ def get_models(models_config_file):
             list_gamma.append(gamma)
     return models, list_kernel, list_C, list_degree, list_gamma
 
-def get_train_data(feature_name, data_name, trainset_index):
+def get_train_data(feature_name, trainset_index):
     """Get training data
     
     Arguments:
@@ -84,8 +85,8 @@ def get_train_data(feature_name, data_name, trainset_index):
         X, y -- List of features (X) and labels (y)
     """
     logger = logging.getLogger()
-    logger.info('Getting training data for training set {} with feature {} on dataset {}...'.format(trainset_index, feature_name, data_name))
-    X_file = X_FILE_FORMAT.format(feature_name, data_name, trainset_index)
+    logger.info('Getting training data for training set {} with feature {}...'.format(trainset_index, feature_name))
+    X_file = X_FILE_FORMAT.format(feature_name, trainset_index)
     y_file = Y_FILE_FORMAT.format(trainset_index)
     X = []
     y = []
@@ -105,23 +106,22 @@ def get_train_data(feature_name, data_name, trainset_index):
     logger.info('y shape: {}'.format(np.shape(y)))
     return X, y
 
-def train(feature_name, data_name, trainset_index):
+def train(feature_name, trainset_index):
     """Train for a training set from ./train_test folder with specific feature_name
     
     Arguments:
         feature_name {string} -- feature_name (Ex. 'keras_vgg16_fc2').
-        data_name {string} -- dataset name (Ex. 'original')
         trainset_index {int} -- index of training file in ./train_set folder (Ex. 0).
     """
     logger = logging.getLogger()
-    logger.info('Start training for train set {} with feature {} on dataset {}'.format(trainset_index, feature_name, data_name))
+    logger.info('Start training for train set {} with feature {}'.format(trainset_index, feature_name))
     models, lkernel, lC, ld, lg = get_models(MODELS_CONFIG_FILE)
-    feature_dir = FEATURES_DIR_FORMAT.format(feature_name, data_name)
+    feature_dir = FEATURES_DIR_FORMAT.format(feature_name)
     if not os.path.exists(feature_dir):
         logger.error('!Error: Feature folder {} not found. Please run feature extractor for this feature'.format(feature_dir))
         return
-    X, y = get_train_data(feature_name, data_name, trainset_index)
-    models_dir = MODELS_DIR_FORMAT.format(feature_name, data_name, trainset_index)
+    X, y = get_train_data(feature_name, trainset_index)
+    models_dir = MODELS_DIR_FORMAT.format(feature_name, trainset_index)
     fittime_file = '{}/time.csv'.format(models_dir)
     if not os.path.exists(models_dir):
         logger.info('Creating models folder {}...'.format(models_dir))
@@ -145,39 +145,37 @@ def train(feature_name, data_name, trainset_index):
         with open(fittime_file, 'a') as fw:
             fw.write(FIT_TIME_ROW_FORMAT.format(lkernel[i], lC[i], ld[i], lg[i], fit_time))
 
-def train_for(feature_name, data_name):
+def train_for(feature_name):
     """Train for all train set in ./train_test folder with specific feature name
     
     Arguments:
         feature_name {string} -- feature name (Ex. 'keras_vgg16_fc2')
-        data_name {string} -- name of dataset (Ex. 'original' or 'edges')
     """
     logger = logging.getLogger()
-    logger.info('Start runing for feature {} on dataset {}...'.format(feature_name, data_name))
-    feature_dir = FEATURES_DIR_FORMAT.format(feature_name, data_name)
+    logger.info('Start runing for feature {}...'.format(feature_name))
+    feature_dir = FEATURES_DIR_FORMAT.format(feature_name)
     if not os.path.exists(feature_dir):
         logger.error('!Error: Feature folder {} not found. Please run feature extractor for this feature'.format(feature_dir))
         return
     for i in range(LOW_TRAINSET_INDEX, HIGH_TRAINSET_INDEX):
         logger.info('>'*100)
-        train(feature_name, data_name, i)
+        train(feature_name, i)
         logger.info('>'*100)
 
 def main(argv):
     tools.config()
-    if len(argv) <= 2:
-        print('Missing arguments train.py `feature_name` `data_name`. Ex. `python train.py keras_vgg16_fc2 original`')
-        return
-    feature_name = argv[1]
-    data_name = argv[2]
-    LOG_FILE = '../logs/train-{}-{}.log'.format(feature_name, data_name)
     if OVERWRITE_MODEL:
         with open(LOG_FILE, 'wb') as fw:
             fw.write('')
     logger = tools.get_logger(LOG_FILE, logging.INFO, logging.DEBUG)
-    logger.info('*'*100)
-    train_for(feature_name, data_name)
-    logger.info('*'*100)
+    if len(argv) == 1:
+        logger.debug('Try again with feature name args. Ex. `python train.py keras_vgg16_fc2 alexnet`')
+        return
+    for i in range(1, len(argv)):
+        logger.info('*'*100)
+        feature_name = argv[i]
+        train_for(feature_name)
+        logger.info('*'*100)
 
 if __name__ == '__main__':
     main(sys.argv)

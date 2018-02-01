@@ -13,8 +13,8 @@ from sklearn.metrics import confusion_matrix
 import tools
 
 OVERWRITE_MODE = False
-LOW_TESTSET_INDEX = 3
-HIGH_TESTSET_INDEX = 5
+LOW_TESTSET_INDEX = 0
+HIGH_TESTSET_INDEX = 1
 FEATURES_DIR_FORMAT = '../bin/features/{}' #.format(feature_name)
 MODELS_DIR_FORMAT = '../bin/models/{}/trainlist0{}' #.format(feature_name, trainset_index)
 TEST_RESULT_FOLDER_FORMAT = '../bin/test/{}/testlist0{}/{}' #.format(feature_name, testset_index, model_name)
@@ -90,13 +90,13 @@ def test(feature_name, testset_index):
         accuracy = tools.calculate_accuracy(y, y_pred)
         logger.info('Done, accuracy = {}'.format(accuracy))
         with open(accuracy_file, 'a') as fw:
-            fw.write('{}\n'.format(accuracy))
+            fw.write('{},{}\n'.format(model_name, accuracy))
         cf_matrix = confusion_matrix(y, y_pred, np.unique(y))
         logger.info('Writing confusion matrix to {}...'.format(confusion_matrix_file))
-        with open(confusion_matrix_file, 'wb') as f:
+        with open(confusion_matrix_file, 'w') as f:
             f.write(np.array2string(cf_matrix, separator=', '))
         logger.info('Writting miss samples to {}...'.format(miss_samples_file))
-        with open(miss_samples_file, 'wb') as f:
+        with open(miss_samples_file, 'w') as f:
             f.write('index,y,y_pred,missed\n')
             for i in range(0, len(y)):
                 if y[i] == y_pred[i]:
