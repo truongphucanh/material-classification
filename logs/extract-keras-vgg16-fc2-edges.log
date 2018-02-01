@@ -1806,3 +1806,4 @@
 2018-01-31 09:32:08,842 - extract_all -Running on folder ../bin/features/keras_vgg16_fc2/edges\wood_chips\n_sample180_01
 2018-01-31 09:33:15,396 - extract_all -Running on folder ../bin/features/keras_vgg16_fc2/edges\wood_chips\n_sample180_03
 2018-01-31 09:34:17,330 - extract_all -Running on folder ../bin/features/keras_vgg16_fc2/edges\wood_chips\n_sample180_04
+2018-02-01 09:28:32,800 - extract_all -Running on folder ../bin/features/keras_vgg16_fc2/edges\aluminum\h_sample076_01
