@@ -439,3 +439,101 @@
 2018-02-01 10:57:37,035 - train -Done. fit_time = 797.1598625183105
 2018-02-01 10:57:37,035 - train -Saving model 0 to ../bin/models/keras_vgg16_fc2-edges/trainlist01 ...
 2018-02-01 10:57:37,615 - train -Fitting with model 1: linear_1000_None_None.pkl
+2018-02-02 00:08:28,713 - main -****************************************************************************************************
+2018-02-02 00:08:28,724 - train_for -Start runing for feature keras_vgg16_fc2-edges...
+2018-02-02 00:08:28,724 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:28,725 - train -Start training for train set 0 with feature keras_vgg16_fc2-edges
+2018-02-02 00:08:28,740 - get_train_data -Getting training data for training set 0 with feature keras_vgg16_fc2-edges...
+2018-02-02 00:08:28,741 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist00.pkl...
+2018-02-02 00:08:28,776 - get_train_data -X shape: (38, 4096)
+2018-02-02 00:08:28,777 - get_train_data -Getting y from ../bin/labels/trainlist00.pkl...
+2018-02-02 00:08:28,790 - get_train_data -y shape: (38,)
+2018-02-02 00:08:28,791 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/linear_0.1_None_None.pkl existed.
+2018-02-02 00:08:28,792 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/linear_1000_None_None.pkl existed.
+2018-02-02 00:08:28,809 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/poly_1000_2_None.pkl existed.
+2018-02-02 00:08:28,810 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/poly_1000_3_None.pkl existed.
+2018-02-02 00:08:28,811 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/rbf_1000_None_0.00000001.pkl existed.
+2018-02-02 00:08:28,811 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist00/rbf_1000_None_0.000001.pkl existed.
+2018-02-02 00:08:28,812 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:28,812 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:28,812 - train -Start training for train set 1 with feature keras_vgg16_fc2-edges
+2018-02-02 00:08:28,813 - get_train_data -Getting training data for training set 1 with feature keras_vgg16_fc2-edges...
+2018-02-02 00:08:28,815 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist01.pkl...
+2018-02-02 00:08:49,471 - get_train_data -X shape: (24954, 4096)
+2018-02-02 00:08:49,472 - get_train_data -Getting y from ../bin/labels/trainlist01.pkl...
+2018-02-02 00:08:49,532 - get_train_data -y shape: (24954,)
+2018-02-02 00:08:49,532 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/linear_0.1_None_None.pkl existed.
+2018-02-02 00:08:49,533 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/linear_1000_None_None.pkl existed.
+2018-02-02 00:08:49,533 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/poly_1000_2_None.pkl existed.
+2018-02-02 00:08:49,533 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/poly_1000_3_None.pkl existed.
+2018-02-02 00:08:49,534 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/rbf_1000_None_0.00000001.pkl existed.
+2018-02-02 00:08:49,534 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist01/rbf_1000_None_0.000001.pkl existed.
+2018-02-02 00:08:50,228 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:50,228 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:50,229 - train -Start training for train set 2 with feature keras_vgg16_fc2-edges
+2018-02-02 00:08:50,231 - get_train_data -Getting training data for training set 2 with feature keras_vgg16_fc2-edges...
+2018-02-02 00:08:50,231 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist02.pkl...
+2018-02-02 00:08:56,649 - get_train_data -X shape: (25436, 4096)
+2018-02-02 00:08:56,650 - get_train_data -Getting y from ../bin/labels/trainlist02.pkl...
+2018-02-02 00:08:56,702 - get_train_data -y shape: (25436,)
+2018-02-02 00:08:56,703 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/linear_0.1_None_None.pkl existed.
+2018-02-02 00:08:56,703 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/linear_1000_None_None.pkl existed.
+2018-02-02 00:08:56,711 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/poly_1000_2_None.pkl existed.
+2018-02-02 00:08:56,712 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/poly_1000_3_None.pkl existed.
+2018-02-02 00:08:56,713 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/rbf_1000_None_0.00000001.pkl existed.
+2018-02-02 00:08:56,714 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist02/rbf_1000_None_0.000001.pkl existed.
+2018-02-02 00:08:57,426 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:57,426 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:08:57,426 - train -Start training for train set 3 with feature keras_vgg16_fc2-edges
+2018-02-02 00:08:57,427 - get_train_data -Getting training data for training set 3 with feature keras_vgg16_fc2-edges...
+2018-02-02 00:08:57,428 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist03.pkl...
+2018-02-02 00:09:17,055 - main -****************************************************************************************************
+2018-02-02 00:09:17,055 - train_for -Start runing for feature keras_vgg16_fc2-edges...
+2018-02-02 00:09:17,056 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 00:09:17,056 - train -Start training for train set 4 with feature keras_vgg16_fc2-edges
+2018-02-02 00:09:17,057 - get_train_data -Getting training data for training set 4 with feature keras_vgg16_fc2-edges...
+2018-02-02 00:09:17,058 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist04.pkl...
+2018-02-02 00:09:23,341 - get_train_data -X shape: (25871, 4096)
+2018-02-02 00:09:23,342 - get_train_data -Getting y from ../bin/labels/trainlist04.pkl...
+2018-02-02 00:09:23,369 - get_train_data -y shape: (25871,)
+2018-02-02 00:09:23,369 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist04/linear_0.1_None_None.pkl existed.
+2018-02-02 00:09:23,370 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist04/linear_1000_None_None.pkl existed.
+2018-02-02 00:09:23,370 - train -Model ../bin/models/keras_vgg16_fc2-edges/trainlist04/poly_1000_2_None.pkl existed.
+2018-02-02 00:09:23,371 - train -Fitting with model 3: poly_1000_3_None.pkl
+2018-02-02 00:26:18,600 - train -Done. fit_time = 1015.2280933856964
+2018-02-02 00:26:18,600 - train -Saving model 3 to ../bin/models/keras_vgg16_fc2-edges/trainlist04 ...
+2018-02-02 00:26:19,363 - train -Fitting with model 4: rbf_1000_None_0.00000001.pkl
+2018-02-02 01:17:31,487 - train -Done. fit_time = 3072.1233916282654
+2018-02-02 01:17:31,487 - train -Saving model 4 to ../bin/models/keras_vgg16_fc2-edges/trainlist04 ...
+2018-02-02 01:17:32,380 - train -Fitting with model 5: rbf_1000_None_0.000001.pkl
+2018-02-02 01:34:26,709 - train -Done. fit_time = 1014.3289086818695
+2018-02-02 01:34:26,710 - train -Saving model 5 to ../bin/models/keras_vgg16_fc2-edges/trainlist04 ...
+2018-02-02 01:34:28,029 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 01:34:28,030 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 01:34:28,031 - train -Start training for train set 5 with feature keras_vgg16_fc2-edges
+2018-02-02 01:34:28,061 - get_train_data -Getting training data for training set 5 with feature keras_vgg16_fc2-edges...
+2018-02-02 01:34:28,062 - get_train_data -Getting X from ../bin/features/keras_vgg16_fc2-edges/trainlist05.pkl...
+2018-02-02 01:34:44,321 - get_train_data -X shape: (26057, 4096)
+2018-02-02 01:34:44,321 - get_train_data -Getting y from ../bin/labels/trainlist05.pkl...
+2018-02-02 01:34:44,365 - get_train_data -y shape: (26057,)
+2018-02-02 01:34:44,365 - train -Creating models folder ../bin/models/keras_vgg16_fc2-edges/trainlist05...
+2018-02-02 01:34:44,366 - train -Fitting with model 0: linear_0.1_None_None.pkl
+2018-02-02 01:48:41,831 - train -Done. fit_time = 837.4638907909393
+2018-02-02 01:48:41,831 - train -Saving model 0 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 01:48:42,659 - train -Fitting with model 1: linear_1000_None_None.pkl
+2018-02-02 02:02:40,661 - train -Done. fit_time = 838.0021314620972
+2018-02-02 02:02:40,662 - train -Saving model 1 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 02:02:41,356 - train -Fitting with model 2: poly_1000_2_None.pkl
+2018-02-02 02:17:11,613 - train -Done. fit_time = 870.257018327713
+2018-02-02 02:17:11,614 - train -Saving model 2 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 02:17:12,339 - train -Fitting with model 3: poly_1000_3_None.pkl
+2018-02-02 02:32:12,453 - train -Done. fit_time = 900.1145317554474
+2018-02-02 02:32:12,454 - train -Saving model 3 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 02:32:13,186 - train -Fitting with model 4: rbf_1000_None_0.00000001.pkl
+2018-02-02 03:20:11,524 - train -Done. fit_time = 2878.3383457660675
+2018-02-02 03:20:11,525 - train -Saving model 4 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 03:20:14,659 - train -Fitting with model 5: rbf_1000_None_0.000001.pkl
+2018-02-02 03:36:25,471 - train -Done. fit_time = 970.8119311332703
+2018-02-02 03:36:25,472 - train -Saving model 5 to ../bin/models/keras_vgg16_fc2-edges/trainlist05 ...
+2018-02-02 03:36:27,668 - train_for ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+2018-02-02 03:36:27,669 - main -****************************************************************************************************
