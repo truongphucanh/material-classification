@@ -9,10 +9,11 @@ import numpy
 import models
 import dataset
 import kit
+import glob
 
 OVERWRITE = False
 LOW_INDEX = 1
-HIGH_INDEX = 1
+HIGH_INDEX = 5
 
 def train(feature_name, split_name):
     """Train for a training set from ./train_test folder with specific feature_name
