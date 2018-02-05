@@ -1,7 +1,7 @@
 import logging
 import numpy as np
 
-def get_logger(file_name, file_level=None, console_level=None):
+def get_logger(file_name, file_level=logging.INFO, console_level=logging.DEBUG):
     """
     Create a custom logger using for both file and console
     Parameters
