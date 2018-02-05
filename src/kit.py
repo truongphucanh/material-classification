@@ -42,3 +42,7 @@ def config():
     np.set_printoptions(threshold=np.nan)
     np.set_printoptions(linewidth=300)
 
+def str2bool(string):
+    if string == 'True':
+        return True
+    return False

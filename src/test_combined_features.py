@@ -10,7 +10,7 @@ import numpy as np
 from sklearn import svm
 from sklearn.externals import joblib
 from sklearn.metrics import confusion_matrix
-import tools
+import kit
 import glob
 
 OVERWRITE_MODE = False
@@ -104,7 +104,7 @@ def test(feature_name, testset_index):
             os.makedirs(test_result_folder)
         logger.info('Predicting with model: {}'.format(model_name))
         y_pred = model.predict(X)
-        accuracy = tools.calculate_accuracy(y, y_pred)
+        accuracy = kit.calculate_accuracy(y, y_pred)
         logger.info('Done, accuracy = {}'.format(accuracy))
         with open(accuracy_file, 'a') as fw:
             fw.write('{},{}\n'.format(model_name, accuracy))
@@ -140,11 +140,11 @@ def test_for(feature_name):
         logger.info('>'*100)
 
 def main(argv):
-    tools.config()
+    kit.config()
     if OVERWRITE_MODE:
         with open(LOG_FILE, 'wb') as fw:
             fw.write('')
-    logger = tools.get_logger(LOG_FILE, logging.INFO, logging.DEBUG)
+    logger = kit.get_logger(LOG_FILE, logging.INFO, logging.DEBUG)
     if len(argv) == 1:
         logger.debug('Try again with feature name args. Ex. `python test.py keras_vgg16_fc2 alexnet`')
         return
