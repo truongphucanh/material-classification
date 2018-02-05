@@ -3,12 +3,9 @@
 import numpy
 import pickle
 import os
-import logging
-import kit
 
 def get_X(feature_name, split_name):
-    logger = logging.getLogger()
-    logger.debug("Getting X for {} {}.".format(feature_name,  split_name))
+    print("Getting X for {} {}.".format(feature_name,  split_name))
 
     # if feature file existed, use it
     X_file = '../bin/features/{}/{}.pkl'.format(feature_name, split_name)
@@ -25,7 +22,7 @@ def get_X(feature_name, split_name):
     for line in content:
         folder = line.split()[0]
         feature_folder = '../bin/features/{}/{}'.format(feature_name, folder)
-        logger.debug('Mix X in folder: {}'.format(feature_folder))
+        print('Mix X in folder: {}'.format(feature_folder))
         for pkl_file in glob.glob('{}/*.pkl'.format(feature_folder)):
             with open(pkl_file, 'rb') as f:
                 X.append(pickle.load(f))
@@ -34,31 +31,29 @@ def get_X(feature_name, split_name):
 def get_y(split_name):
     y_file = '../bin/labels/{}.pkl'.format(split_name)
     if not os.path.exists(y_file):
-        logger.error('!Error: Label file {} not found.'.format(y_file))
+        print('!Error: Label file {} not found.'.format(y_file))
         return
-    logger.info('Getting y from {}...'.format(y_file))
+    print('Getting y from {}...'.format(y_file))
     with open(y_file, 'rb') as fr:
         y = pickle.load(fr)
     return numpy.array(y)
 
 def get_data(feature_name, split_name):
-    logger = logging.getLogger()
-    logger.info('Getting training data for training set {} with feature {}...'.format(split_name, feature_name))
+    print('Getting training data for training set {} with feature {}...'.format(split_name, feature_name))
     X_file = '../bin/features/{}/{}.pkl'.format(feature_name, split_name)
     y_file = '../bin/labels/{}.pkl'.format(split_name)
     
     # get X
     X = get_X(feature_name, split_name)
-    logger.info('X shape: {}'.format(numpy.shape(X)))
+    print('X shape: {}'.format(numpy.shape(X)))
 
     # get y
     y = get_y(split_name)
-    logger.info('y shape: {}'.format(numpy.shape(y)))
+    print('y shape: {}'.format(numpy.shape(y)))
 
     return X, y
 
 def confirm():
-    logger = kit.get_logger('../logs/dataset.log')
     X, y = get_data('keras_vgg16_fc2-original', 'trainlist02')
     print(numpy.shape(X))
     print(numpy.shape(y))
