@@ -56,9 +56,9 @@ def get_models(config_file):
             list_prob.append(prob)
     return numpy.array(models), numpy.array(list_kernel), numpy.array(list_C), numpy.array(list_degree), numpy.array(list_gamma), numpy.array(list_prob)
 
-def test():
+def confirm():
     logger = kit.get_logger('../logs/models.log')
     models, lk, lc, ld, lg, lp = get_models('../config/models_config.csv')
     print(lk, lc, ld, lg, lp)
 
-test()
+# confirm()

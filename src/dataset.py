@@ -57,8 +57,10 @@ def get_data(feature_name, split_name):
 
     return X, y
 
-def test():
+def confirm():
     logger = kit.get_logger('../logs/dataset.log')
     X, y = get_data('keras_vgg16_fc2-original', 'trainlist02')
     print(numpy.shape(X))
     print(numpy.shape(y))
+
+# confirm()
