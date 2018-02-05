@@ -1,210 +1,91 @@
-""""Training svm models"""
-
+# Example: python train.py keras_vgg16_fc2-original
+from sklearn.externals import joblib
 import pickle
 import sys
 import time
 import logging
 import os
-import csv
-from sklearn import svm
-from sklearn.externals import joblib
-import numpy as np
+import numpy
+import models
+import dataset
 import kit
 
-OVERWRITE_MODEL = False
-MODELS_CONFIG_FILE = '../config/models_config.csv'
-FEATURES_DIR_FORMAT = '../bin/features/{}' #.format(feature_name)
-MODELS_DIR_FORMAT = '../bin/models/{}/trainlist0{}' #.format(feature_name, trainset_index)
-X_FILE_FORMAT = '../bin/features/{}/trainlist0{}.pkl' #.format(feature_name, trainset_index)
-Y_FILE_FORMAT = '../bin/labels/trainlist0{}.pkl' #.format(trainset_index)
-FIT_TIME_ROW_FORMAT = '{},{},{},{},{}\n'#.format(kernel,C,d,g,time)
-LOG_FILE = '../logs/train.log'
-LOW_TRAINSET_INDEX = 0
-HIGH_TRAINSET_INDEX = 6
+OVERWRITE = False
+LOW_INDEX = 1
+HIGH_INDEX = 1
 
-def get_models(models_config_file):
-    """Get sklearn.svm.SVC models
-    
-    Arguments:
-        models_config_file {string} -- Model config file name (*.csv)
-    
-    Returns:
-        models -- List of models
-    """
-    logger = logging.getLogger()
-    if not models_config_file.endswith('.csv'):
-        logger.error('!Error: models config file must be *.csv, but it is {}'.format(models_config_file))
-        return
-    if not os.path.exists(models_config_file):
-        logger.error('!Error: File not found {}'.format(models_config_file))
-        return
-    models = []
-    list_kernel = []
-    list_C = []
-    list_degree = []
-    list_gamma = []
-    list_prob = []
-    with open(models_config_file) as f:
-        reader = csv.reader(f)
-        rows = list(reader)
-        isFirstRow = True
-        for row in rows:
-            if len(row) < 5:
-                logger.error('!Error: Invalid format in models config file {}. Please folow format \"kernel, C, degree, gamma\"'.format(models_config_file))
-                return
-            if isFirstRow:
-                logger.debug('Skip first row')
-                isFirstRow = False
-                continue
-            kernel = row[0]
-            C = row[1]
-            degree = row[2]
-            gamma = row[3]
-            prob = row[4]
-            model = svm.LinearSVC()
-            if kernel == 'default':
-                model = svm.SVC(probability=kit.str2bool(prob))
-            elif kernel == 'linear':
-                model = svm.SVC(kernel=kernel, C=float(C), probability=kit.str2bool(prob))
-            elif kernel == 'poly':
-                model = svm.SVC(kernel=kernel, C=float(C), degree=float(degree), probability=kit.str2bool(prob))
-            elif kernel == 'rbf':
-                model = svm.SVC(kernel=kernel, C=float(C), gamma=float(gamma), probability=kit.str2bool(prob))
-            else:
-                logger.error('!Error: Invalid kernel. Kernel must be one of `linear, rbf or poly` but it is {}').format(kernel)
-            models.append(model)
-            list_kernel.append(kernel)
-            list_C.append(C)
-            list_degree.append(degree)
-            list_gamma.append(gamma)
-            list_prob.append(prob)
-    return models, list_kernel, list_C, list_degree, list_gamma
-
-def get_X(split_file, feature_name):
-    """Get X for SVMs train or test
-    
-    Arguments:
-        split_file {string} -- Split file name
-        feature_name {string} -- Feature name
-    
-    Returns:
-        list -- List of feature vector
-    """
-    logger = logging.getLogger()
-    with open(split_file) as f:
-        content = f.readlines()
-    content = [x.strip() for x in content]
-    X = np.array()
-    for line in content:
-        folder = line.split()[0]
-        feature_folder = '../bin/features/{}/{}'.format(feature_name, folder)
-        logger.debug('Run on feature folder: {}'.format(feature_folder))
-        for pkl_file in glob.glob('{}/*.pkl'.format(feature_folder)):
-            with open(pkl_file, 'rb') as f:
-                X = np.append(X, pickle.load(f))
-    return X
-
-def get_train_data(feature_name, trainset_index):
-    """Get training data
-    
-    Arguments:
-        feature_name {string} -- feature name (Ex. 'keras_vgg16_fc2')
-        trainset_index {int} -- index of training set in folder `./train_test/`
-    
-    Returns:
-        X, y -- List of features (X) and labels (y)
-    """
-    logger = logging.getLogger()
-    logger.info('Getting training data for training set {} with feature {}...'.format(trainset_index, feature_name))
-    X_file = X_FILE_FORMAT.format(feature_name, trainset_index)
-    y_file = Y_FILE_FORMAT.format(trainset_index)
-    X = []
-    y = []
-    if not os.path.exists(X_file):
-        
-    if not os.path.exists(y_file):
-        logger.error('!Error: Label file {} not found.'.format(y_file))
-        return X, y
-    logger.info('Getting X from {}...'.format(X_file))
-    with open(X_file, 'rb') as fr:
-        X = pickle.load(fr)
-    logger.info('X shape: {}'.format(np.shape(X)))
-    logger.info('Getting y from {}...'.format(y_file))
-    with open(y_file, 'rb') as fr:
-        y = pickle.load(fr)
-    logger.info('y shape: {}'.format(np.shape(y)))
-    return X, y
-
-def train(feature_name, trainset_index):
+def train(feature_name, split_name):
     """Train for a training set from ./train_test folder with specific feature_name
     
     Arguments:
         feature_name {string} -- feature_name (Ex. 'keras_vgg16_fc2').
-        trainset_index {int} -- index of training file in ./train_set folder (Ex. 0).
+        split_name {string} -- split name (Ex. 'trainlist001').
     """
+    # get logger
     logger = logging.getLogger()
-    logger.info('Start training for train set {} with feature {}'.format(trainset_index, feature_name))
-    models, lkernel, lC, ld, lg = get_models(MODELS_CONFIG_FILE)
-    feature_dir = FEATURES_DIR_FORMAT.format(feature_name)
+    logger.info('Start training for '.format(feature_name, split_name))
+
+    # get models
+    clfs, lkernel, lC, ld, lg, lp = models.get_models('../config/models_config.csv')
+
+    # get data
+    feature_dir = '../bin/features/{}'.format(feature_name)
     if not os.path.exists(feature_dir):
         logger.error('!Error: Feature folder {} not found. Please run feature extractor for this feature'.format(feature_dir))
         return
-    X, y = get_train_data(feature_name, trainset_index)
-    models_dir = MODELS_DIR_FORMAT.format(feature_name, trainset_index)
+    X, y = dataset.get_data(feature_name, split_name)
+
+    # fit data and save model to file
+    models_dir = '../bin/models/{}/{}'.format(feature_name, split_name)
     fittime_file = '{}/time.csv'.format(models_dir)
     if not os.path.exists(models_dir):
         logger.info('Creating models folder {}...'.format(models_dir))
         os.makedirs(models_dir)
-    if OVERWRITE_MODEL:
+    if OVERWRITE:
         with open(fittime_file, 'wb') as fw:
             fw.write('Kernel,C,degree,gamma,fit time\n')
-    for i, model in enumerate(models):
-        model_file = '{}_{}_{}_{}.pkl'.format(lkernel[i], lC[i], ld[i], lg[i])
+    for i, clf in enumerate(clfs):
+        model_file = '{}_{}_{}_{}_{}.pkl'.format(lkernel[i], lC[i], ld[i], lg[i], lp[i])
         model_dir = '{}/{}'.format(models_dir, model_file)
-        if (not OVERWRITE_MODEL) and os.path.exists(model_dir):
+        if (not OVERWRITE) and os.path.exists(model_dir):
             logger.info('Model {} existed.'.format(model_dir))
             continue
         logger.info('Fitting with model {}: {}'.format(i, model_file))
         start_time = time.time()
-        model.fit(X, y)
+        clf.fit(X, y)
         fit_time = time.time() - start_time
         logger.info('Done. fit_time = {}'.format(fit_time))
         logger.info('Saving model {} to {} ...'.format(i, models_dir))
-        joblib.dump(model, model_dir)
+        joblib.dump(clf, model_dir)
         with open(fittime_file, 'a') as fw:
-            fw.write(FIT_TIME_ROW_FORMAT.format(lkernel[i], lC[i], ld[i], lg[i], fit_time))
+            fw.write('{},{},{},{},{},{}\n'.format(lkernel[i], lC[i], ld[i], lg[i], lp[i], fit_time))
 
 def train_for(feature_name):
     """Train for all train set in ./train_test folder with specific feature name
     
     Arguments:
-        feature_name {string} -- feature name (Ex. 'keras_vgg16_fc2')
+        feature_name {string} -- feature name (Ex. 'keras_vgg16_fc2-original')
     """
     logger = logging.getLogger()
-    logger.info('Start runing for feature {}...'.format(feature_name))
-    feature_dir = FEATURES_DIR_FORMAT.format(feature_name)
+    feature_dir = '../bin/features/{}'.format(feature_name)
     if not os.path.exists(feature_dir):
         logger.error('!Error: Feature folder {} not found. Please run feature extractor for this feature'.format(feature_dir))
         return
-    for i in range(LOW_TRAINSET_INDEX, HIGH_TRAINSET_INDEX):
+    for i in range(LOW_INDEX, HIGH_INDEX + 1):
         logger.info('>'*100)
-        train(feature_name, i)
+        train(feature_name, 'trainlist0{}'.format(i))
         logger.info('>'*100)
 
 def main(argv):
     kit.config()
-    if OVERWRITE_MODEL:
-        with open(LOG_FILE, 'wb') as fw:
-            fw.write('')
-    logger = kit.get_logger(LOG_FILE, logging.INFO, logging.DEBUG)
-    if len(argv) == 1:
-        logger.debug('Try again with feature name args. Ex. `python train.py keras_vgg16_fc2 alexnet`')
+    logger = kit.get_logger('../logs/train.log')
+    if len(argv) <= 1:
+        print('Missing arguments. Please try again.')
+        print('Format: python train.py \{feature name\}')
+        print('Example: python train.py keras_vgg16_fc2-original')
         return
-    for i in range(1, len(argv)):
-        logger.info('*'*100)
-        feature_name = argv[i]
-        train_for(feature_name)
-        logger.info('*'*100)
+    feature_name = argv[1]
+    train_for(feature_name)
 
 if __name__ == '__main__':
     main(sys.argv)
