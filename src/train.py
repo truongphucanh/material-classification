@@ -1,4 +1,4 @@
-# Example: python train.py keras_vgg16_fc2-original
+# Example: python train.py keras_vgg16_fc2-original 1 1
 from sklearn.externals import joblib
 import pickle
 import sys
