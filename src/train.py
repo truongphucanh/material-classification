@@ -8,12 +8,10 @@ import os
 import numpy
 import models
 import dataset
-import kit
 import glob
+from mkit import mlog
 
 OVERWRITE = False
-LOW_INDEX = 1
-HIGH_INDEX = 5
 
 def train(feature_name, split_name):
     """Train for a training set from ./train_test folder with specific feature_name
@@ -27,7 +25,7 @@ def train(feature_name, split_name):
     logger.info('Start training for '.format(feature_name, split_name))
 
     # get models
-    clfs, lkernel, lC, ld, lg, lp = models.get_models('../config/models_config.csv')
+    clfs, lkernel, lC, ld, lg = models.get_models('../config/models_config.csv')
 
     # get data
     feature_dir = '../bin/features/{}'.format(feature_name)
@@ -46,7 +44,7 @@ def train(feature_name, split_name):
         with open(fittime_file, 'wb') as fw:
             fw.write('Kernel,C,degree,gamma,fit time\n')
     for i, clf in enumerate(clfs):
-        model_file = '{}_{}_{}_{}_{}.pkl'.format(lkernel[i], lC[i], ld[i], lg[i], lp[i])
+        model_file = '{}_{}_{}_{}.pkl'.format(lkernel[i], lC[i], ld[i], lg[i])
         model_dir = '{}/{}'.format(models_dir, model_file)
         if (not OVERWRITE) and os.path.exists(model_dir):
             logger.info('Model {} existed.'.format(model_dir))
@@ -59,9 +57,9 @@ def train(feature_name, split_name):
         logger.info('Saving model {} to {} ...'.format(i, models_dir))
         joblib.dump(clf, model_dir)
         with open(fittime_file, 'a') as fw:
-            fw.write('{},{},{},{},{},{}\n'.format(lkernel[i], lC[i], ld[i], lg[i], lp[i], fit_time))
+            fw.write('{},{},{},{},{}\n'.format(lkernel[i], lC[i], ld[i], lg[i], fit_time))
 
-def train_for(feature_name):
+def train_for(feature_name, low, high):
     """Train for all train set in ./train_test folder with specific feature name
     
     Arguments:
@@ -72,21 +70,25 @@ def train_for(feature_name):
     if not os.path.exists(feature_dir):
         logger.error('!Error: Feature folder {} not found. Please run feature extractor for this feature'.format(feature_dir))
         return
-    for i in range(LOW_INDEX, HIGH_INDEX + 1):
+    for i in range(low, high + 1):
         logger.info('>'*100)
         train(feature_name, 'trainlist0{}'.format(i))
-        logger.info('>'*100)
 
 def main(argv):
-    kit.config()
-    logger = kit.get_logger('../logs/train.log')
+    mlog.config()
+    logger = mlog.get_logger('../logs/train.log')
     if len(argv) <= 1:
         print('Missing arguments. Please try again.')
-        print('Format: python train.py \{feature name\}')
+        print('Format: python train.py {feature name}')
         print('Example: python train.py keras_vgg16_fc2-original')
         return
     feature_name = argv[1]
-    train_for(feature_name)
+    LOW_INDEX = 1
+    HIGH_INDEX = 5
+    if len(argv) >= 4:
+        LOW_INDEX = int(argv[2])
+        HIGH_INDEX = int(argv[3])
+    train_for(feature_name, LOW_INDEX, HIGH_INDEX)
 
 if __name__ == '__main__':
     main(sys.argv)
