@@ -1,2 +1,0 @@
-aluminum/h_sample088_01 2 19
-asphalt/h_sample017_01 3 19

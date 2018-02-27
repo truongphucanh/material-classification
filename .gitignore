@@ -28,3 +28,5 @@ data/*
 *.pkl
 
 *.pyc
+*.vscode
+*.log

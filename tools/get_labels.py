@@ -1,16 +1,16 @@
-"""Get labels for train-test set."""
+"""Get labels for splits set."""
 
 import os
 import pickle
 import logging
-import tools
+from mkit import mlog
 
 TRAIN_FORMAT = 'trainlist0{}'
 TEST_FORMAT = 'testlist0{}'
 
 def get_labels(train_test_file):
     logger = logging.getLogger()
-    src_file = '../train_test/{}.txt'.format(train_test_file)
+    src_file = '../splits/{}.txt'.format(train_test_file)
     labels_file = '../bin/labels/{}.pkl'.format(train_test_file)
     if os.path.exists(labels_file):
         logger.debug('Labels file {} existed.'.format(labels_file))
@@ -31,7 +31,7 @@ def get_labels(train_test_file):
         pickle.dump(labels, fw)
 
 def main():
-    tools.get_logger('../logs/get_labels.log', logging.INFO, logging.DEBUG)
+    mlog.get_logger('../logs/get_labels.log', logging.INFO, logging.DEBUG)
     for i in range(0, 6):
         train_file = TRAIN_FORMAT.format(i)
         test_file = TEST_FORMAT.format(i)
