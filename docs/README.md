@@ -13,7 +13,7 @@ Material Classification Using Raw Time-Of-Flight Measurements
 RAID-G: Robust Estimation of Approximate Infinite Dimensional Gaussian With Application to Material Recognition
 
 # CVPR 2015
-Reflectance Hashing for Material Recognition
+Reflectance Hashing for Material Recognition. [Source](https://github.com/zhanghang1989/Deep-Reflectance-Code/blob/master/README.md)
 
 Material Recognition in the Wild With the Materials in Context Database
 

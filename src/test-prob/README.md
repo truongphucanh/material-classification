@@ -1,0 +1,1 @@
+Used to test scikit-learn svm prediction with probability
