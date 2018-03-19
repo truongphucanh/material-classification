@@ -1,0 +1,10 @@
+1 fabric
+2 foliage
+3 glass
+4 leather
+5 metal
+6 paper
+7 plastic
+8 stone
+9 water
+10 wood
