@@ -10,7 +10,7 @@ def get_data(dataset_name, feature_type, split_name):
 
     # if feature file existed, use it
     X_file = "./DS_{}/result/features/{}/{}.pkl".format(dataset_name, feature_type, split_name)
-    y_file = "./DS_{}/result/labels/{}/{}.pkl".format(dataset_name, feature_type, split_name)
+    y_file = "./DS_{}/result/labels/{}.pkl".format(dataset_name, feature_type, split_name)
     if os.path.exists(X_file) and os.path.exists(y_file):
         with open(X_file, "rb") as fr:
             X = pickle.load(fr)
@@ -34,6 +34,24 @@ def get_data(dataset_name, feature_type, split_name):
             X.append(pickle.load(f))
             y.append(label)
     return numpy.array(X), numpy.array(y)
+
+def get_y(dataset_name, split_name):
+    y_file = "./DS_{}/result/labels/{}.pkl".format(dataset_name, split_name)
+    if os.path.exists(y_file):
+        with open(y_file, "rb") as fr:
+            y = pickle.load(fr)
+        return numpy.array(y)
+
+    # else, mix feature from single feature files.
+    split_file = "./DS_{}/splits/{}.txt".format(dataset_name, split_name)
+    with open(split_file) as f:
+        content = f.readlines()
+    content = [x.strip() for x in content]
+    y = []
+    for line in content:
+        label = line.split()[1]
+        y.append(label)
+    return numpy.array(y)
 
 def confirm():
     X, y = get_data("FMD", "original", "train_split_1")
