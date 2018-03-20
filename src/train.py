@@ -74,11 +74,8 @@ def main(argv):
         return
     dataset_name = argv[1]
     feature_type = argv[2]
-    LOW_INDEX = 1
-    HIGH_INDEX = 5
-    if len(argv) >= 4:
-        LOW_INDEX = int(argv[3])
-        HIGH_INDEX = int(argv[4])
+    LOW_INDEX = int(argv[3])
+    HIGH_INDEX = int(argv[4])
     train_for(dataset_name, feature_type, LOW_INDEX, HIGH_INDEX)
 
 if __name__ == "__main__":
