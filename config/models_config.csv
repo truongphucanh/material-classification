@@ -1,8 +1,2 @@
 Kernel,C,Degree,Gamma
 default,default,default,default
-linear,0.1,None,None
-linear,1,None,None
-poly,1000,2,None
-poly,1000,3,None
-rbf,1000,None,0.000001
-rbf,1000,None,0.0001
