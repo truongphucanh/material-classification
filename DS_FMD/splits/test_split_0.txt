@@ -1,0 +1,15 @@
+./DS_FMD/data/original/fabric/fabric_object_004_new.jpg 1
+./DS_FMD/data/original/wood/wood_moderate_010_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_041_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_045_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_031_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_010_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_042_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_002_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_028_new.jpg 10
+./DS_FMD/data/original/wood/wood_object_011_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_030_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_050_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_044_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_039_new.jpg 10
+./DS_FMD/data/original/wood/wood_moderate_031_new.jpg 10
