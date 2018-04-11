@@ -26,9 +26,11 @@ def get_data(dataset_name, feature_type, split_name):
     X = []
     y = []
     for line in content:
+        if line == "":
+            continue
         jpg_file = line.split()[0]
         label = line.split()[1]
-        pkl_file = jpg_file.replace("data", "result/features").replace("jpg", "pkl")
+        pkl_file = jpg_file.replace("data", "result/features").replace("jpg", "pkl").replace("original", feature_type)
         print("Read file {}".format(pkl_file))
         with open(pkl_file, "rb") as f:
             X.append(pickle.load(f))
