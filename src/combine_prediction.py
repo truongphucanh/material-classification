@@ -111,7 +111,12 @@ def main(argv):
         fw.write("{},{}\n".format(split, accuracy))
     
     # confusion matrix
-    cf_matrix = confusion_matrix(y, y_pred, numpy.unique(y))
+    nLabels = len(numpy.unique(y))
+    labels_for_confusion_matrix = []
+    for i in range(1, nLabels + 1):
+        labels_for_confusion_matrix.append(str(i))
+    print(labels_for_confusion_matrix)
+    cf_matrix = confusion_matrix(y, y_pred, labels=labels_for_confusion_matrix)
     logger.debug("Writing confusion matrix to {}...".format(confusion_matrix_file))
     with open(confusion_matrix_file, "w") as f:
         f.write(numpy.array2string(cf_matrix, separator=", "))
