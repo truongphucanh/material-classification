@@ -1,0 +1,27 @@
+\def\baselinestretch{1}
+\chapter{Kết luận và hướng phát triển}
+\ifpdf
+    \graphicspath{{Conclusions/ConclusionsFigs/PNG/}{Conclusions/ConclusionsFigs/PDF/}{Conclusions/ConclusionsFigs/}}
+\else
+    \graphicspath{{Conclusions/ConclusionsFigs/EPS/}{Conclusions/ConclusionsFigs/}}
+\fi
+
+\def\baselinestretch{1.66}
+\section{Kết quả đạt được}
+Sau giai đoạn luận văn, nhóm đã áp dụng được các kiến thức chuyên ngành đã được học vào bài toán phân lớp vật liệu. Sau quá trình tìm hiểu, tổng hợp các nghiên cứu trước, nhóm đã nắm được các phương pháp cơ bản hiện có cho bài toán, dựa vào đó đưa ra một số mô hình nhằm cải thiện kết quả. Báo cáo đã trình bày những mô hình nhóm đề xuất cũng như quá trình cài đặt, thử nghiệm đánh giá các mô hình này trên những tập dữ liệu khác nhau.
+
+\section{Hướng phát triển}
+Với kết quả hiện tại của đề tài, nhóm nhận thấy các mô hình đề xuất còn có nhiều hướng phát triển, chỉnh sửa nhằm cải thiện cả về độ chính xác, hiệu suất, tài nguyên sử dụng. Bên dưới là một số hướng phát triển tiếp theo cho đề tài mà nhóm dự định thực hiện.
+\begin{enumerate}
+\item Tiếp tục các thực nghiệm với mạng VGG16 để có một cái nhìn sâu hơn về cách các layer của nó hoạt động, từ đó có thể thiết kế một mạng mới thích hợp cho bài toán hiện tại. Điều này giúp tích kiệm chi phí huấn luyện các mô hình trên đồng thời cũng tăng độ thích ứng của mô hình với dữ liệu mới (so với việc dùng SVMs để huấn luyện các bộ phân lớp)
+\item Thay đổi cách kết hợp features và probability prediction như đã trình bày trong ba mô hình trên. Có thể kết hợp theo trọng số thay vì dùng phép nối vector và trung bình cộng như hiện tại.
+\item Kết hợp thêm các thông tin khác có thể lấy từ ảnh (ví dụ như thông tin về góc nhìn - một mẫu với nhiều góc nhìn khác nhau, nghiên cứu \cite{xue2017differential} đã cho thấy thông tin này rất giá trị trong bài toán phân lớp vật liệu)
+\end{enumerate}
+%%% ----------------------------------------------------------------------
+
+% ------------------------------------------------------------------------
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 
